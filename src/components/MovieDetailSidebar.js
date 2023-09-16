@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   FaHome,
@@ -11,12 +12,13 @@ const MovieDetailSidebar = () => {
   return (
     <div className="bg-gray-300 p-10 flex flex-col h-screen rounded-r-[50px]">
       <div className="mb-6 mt-10">
-        <img
+        <Image
           src="/logo.png"
           width={150}
           height={150}
           alt="Logo"
           className="text-black "
+          
         />
 
         {/* Add your Logo component */}

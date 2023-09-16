@@ -2,6 +2,7 @@ import { SiImdb } from "react-icons/si";
 import { GiTomato } from "react-icons/gi";
 import LikeButton from "./LikeButton";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const MovieCard = ({ movie }) => {
   const router = useRouter();
@@ -15,10 +16,12 @@ const MovieCard = ({ movie }) => {
       className="relative overflow-hidden bg-white rounded-md shadow-md transition transform hover:shadow-xl ease-in duration-200 m-4"
       onClick={handleCardClick}
     >
-      <img
+      <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         className="w-full object-cover mb-4 h-[300px] sm:h-[400px]"
+        width={500}
+        height={500}
       />
       <LikeButton />
 
