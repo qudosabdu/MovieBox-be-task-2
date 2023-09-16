@@ -11,78 +11,122 @@ const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
+    const fetchMovieDetails = async () => {
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=da3e751cf5ad5c250a200c7ed8300d64`);
+        const data = await response.json();
+        setMovieDetails(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
     if (movieId) {
-      fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=da3e751cf5ad5c250a200c7ed8300d64`
-      )
-        .then((response) => response.json())
-        .then((data) => setMovieDetails(data))
-        .catch((error) => console.error("Error fetching data:", error));
+      fetchMovieDetails();
     }
   }, [movieId]);
 
-  // Add a state to track window width
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  // Update window width when it changes
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const getResponsiveImageSize = () => {
+    if (window.innerWidth >= 768) {
+      return 400;
+    } else {
+      return 300;
+    }
+  };
 
   if (!movieDetails) {
     return <div>Loading...</div>;
   }
 
-  // Define some styles for responsive layout
-  const responsiveStyles = {
-    container: { maxWidth: "100%" },
-  };
-
   return (
-    <>
-      <div className="flex">
-        <MovieDetailSidebar />
-        <div className="p-4" style={responsiveStyles.container}>
-          <div className="flex items-center">
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-              alt={movieDetails.title}
-              className="w-full object-cover mb-4 h-[300px] sm:h-[400px]"
-              width={500}
-              height={500}
-            />
-          </div>
-          <div className="flex items-center mb-2 justify-evenly">
-            <h1 className="text-2xl font-bold mb-2">{movieDetails.title}</h1>
-            &nbsp;&nbsp;
-            <BsStarHalf className="text-yellow-500" size={25} />
-            <span className="text-sm md:text-base ml-1">
-              {movieDetails.vote_average}
-            </span>
-          <div className="flex items-center mb-2">
-            <span className="mr-2">&nbsp; Duration: {parseInt(movieDetails.runtime/60)}hours</span>
-            <span className="mr-2">Release Date: {movieDetails.release_date}</span>
-            <span className="text-sm md:text-base ml-1">
-              Vote: {movieDetails.vote_count}
-            </span>
-          </div>
-          </div>
+    // <div className="flex">
+    //   <MovieDetailSidebar />
+    //   <div className="p-4 max-w-full">
+    //     <div className="flex items-center">
+    //       <Image
+    //         src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
+    //         alt={movieDetails.title}
+    //         className="w-full object-cover mb-4 h-[300px] sm:h-[400px]"
+    //         width={500}
+    //         height={getResponsiveImageSize()}
+    //       />
+    //     </div>
+    //     <div className="flex items-center mb-2 justify-evenly">
+    //       <h1 className="text-2xl font-bold mb-2">{movieDetails.title}</h1>
+    //       <BsStarHalf className="text-yellow-500" size={25} />
+    //       <span className="text-sm md:text-base ml-1">
+    //         {movieDetails.vote_average}
+    //       </span>
+    //     </div>
+    //     <div className="flex items-center mb-2">
+    //       <span className="mr-2">
+    //         Duration: {parseInt(movieDetails.runtime / 60)} hours
+    //       </span>
+    //       <span className="mr-2">
+    //         Release Date: {movieDetails.release_date}
+    //       </span>
+    //       <span className="text-sm md:text-base ml-1">
+    //         Vote: {movieDetails.vote_count}
+    //       </span>
+    //     </div>
+    //     <div className="flex items-center mb-2">
+    //       <span className="mr-2">Popularity: {movieDetails.popularity}%</span>
+    //       <span className="text-sm md:text-base ml-1">
+    //         Language: {movieDetails.original_language}
+    //       </span>
+    //     </div>
+    //     <p className="text-sm">{movieDetails.overview}</p>
+    //   </div>
+    //   <FilmCard />
+    // </div>
+
+    <div className="flex">
+    <MovieDetailSidebar />
+    <div className="p-4 max-w-3xl mx-auto">
+      <div className="flex items-center mb-4">
+        <Image
+          src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
+          alt={movieDetails.title}
+          className="w-full h-auto object-cover max-h-[400px] sm:max-h-[600px]"
+          width={500}
+          height={500}
+        />
+      </div>
+      <div className="mb-4">
+        <h1 className="text-3xl font-bold mb-2">{movieDetails.title}</h1>
+        <div className="flex items-center mb-2">
+          <BsStarHalf className="text-yellow-500" size={25} />
+          <span className="text-base font-semibold ml-1">
+            {movieDetails.vote_average}
+          </span>
+        </div>
+        <div className="flex items-center mb-2">
+          <span className="mr-2">
+            Duration: {parseInt(movieDetails.runtime / 60)} hours
+          </span>
+          <span className="mr-2">Release Date: {movieDetails.release_date}</span>
+          <span className="text-base font-semibold">
+            Vote: {movieDetails.vote_count}
+          </span>
+        </div>
+        <div className="text-xl flex items-center">
+          <span className="mr-2">
+            Popularity: {movieDetails.popularity}%
+          </span>
+          <span className="text-base font-semibold ">
+            Language: {movieDetails.original_language.toUpperCase()}
+          </span>
         </div>
       </div>
-      <FilmCard />
-    </>
+      <div className="text-xl">{movieDetails.overview}</div>
+    </div>
+  </div>
+    
   );
 };
 
 export default MovieDetail;
+
 // import Link from "next/link";
 // import { FaHome, FaStarAndCrescent } from "react-icons/fa";
 
