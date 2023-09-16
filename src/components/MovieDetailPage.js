@@ -79,10 +79,10 @@ import { BsStar } from "react-icons/bs";
 
 // export default MovieDetail;
 import Link from "next/link";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaStarAndCrescent } from "react-icons/fa";
 
-import { BsFillPlayFill, BsFillBookmarkFill } from "react-icons/bs";
-import { BiSolidStar, BiShareAlt } from "react-icons/bi";
+import { BsFillPlayFill, BsFillBookmarkFill , BsStarHalf} from "react-icons/bs";
+import { BiShareAlt } from "react-icons/bi";
 import { GiTicket } from "react-icons/gi";
 import { BsHeartFill } from "react-icons/bs";
 import { BsListUl } from "react-icons/bs";
@@ -90,6 +90,8 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CgCalendarDates } from "react-icons/cg";
 import { BiCameraMovie } from "react-icons/bi";
+import Image from "next/image";
+// import { BsStarHalf } from "react-icons/bs";
 
 const MovieDetail = () => {
   const router = useRouter();
@@ -141,10 +143,12 @@ const MovieDetail = () => {
         className="absolute top-[2.38rem] left-[16.44rem] w-[74.88rem] h-[28.06rem] text-left text-[1.56rem] text-gainsboro-100 font-poppins"
         Trailer="movieTrailer"
       >
-        <img
+        <Image
           src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
           alt={movieDetails.title}
           className="bsolute top-[0rem] left-[0rem] rounded-xl w-[74.88rem] h-[28.06rem] object-cover"
+          width={1198}
+          height={446}
         />
         <div className="absolute top-[8.25rem] left-[32.56rem] w-[10.5rem] h-[9.81rem]">
           <div className="absolute top-[-0.06rem] left-[1.75rem] rounded-[50%] bg-['#E8E8E8']opacity-50 shadow-[0px_2px_4px_rgba(0,_0,_0,_0.25)] [backdrop-filter:blur(4px)] box-border w-[7rem] h-[7rem] border-[2px] border-solid border-gainsboro-200" />
@@ -190,7 +194,7 @@ const MovieDetail = () => {
       </div>
       <div className="text-black absolute top-[32.25rem] left-[67.56rem] w-[22.5rem] h-[11.5rem] text-[1.25rem]">
         <div className="absolute top-[0rem] left-[13.5rem] w-[9rem] h-[2.38rem] text-[1.56rem]">
-          <iFillStar className="absolute top-[0.19rem] left-[0rem] w-[1.88rem] h-[1.88rem] object-cover" />
+          <BsStarHalf className="absolute top-[0.19rem] left-[0rem] w-[1.88rem] h-[1.88rem] object-cover text-yellow-500" />
           <div className="absolute top-[0rem] left-[2.44rem] font-medium">
             <span>{movieDetails.vote_average}</span>
             <span className="text-[1.25rem] text-dimgray">| 350k</span>
@@ -252,10 +256,12 @@ const MovieDetail = () => {
         </div>
         <div className="absolute top-[9.88rem] left-[0rem] w-[8.81rem] h-[14rem] text-center text-gainsboro-300">
           <div className="absolute top-[0rem] left-[0rem] rounded-[50%] bg-lightcyan w-[8.75rem] h-[8.75rem]" />
-          <img
+        <Image 
             className="absolute top-[0rem] left-[0rem] rounded-[50%] w-[8.75rem] h-[8.75rem] object-cover"
             alt="this an image"
             src="/tom.jpg"
+            width={140}
+            height={140}
           />
           <div className="absolute top-[9.69rem] left-[0rem] font-medium">
             <p className="m-0 text-gainsboro-100">Tom Cruise</p>
@@ -265,10 +271,12 @@ const MovieDetail = () => {
         </div>
         <div className="absolute top-[9.88rem] left-[12.94rem] w-[8.75rem] h-[12.56rem] text-center">
           <div className="absolute top-[0rem] left-[0rem] rounded-[50%] bg-ghostwhite w-[8.75rem] h-[8.75rem]" />
-          <img
+          <Image
             className="absolute top-[0rem] left-[0rem] rounded-[50%] w-[8.75rem] h-[8.75rem] object-cover"
             alt="this is image"
             src="/Jennifer.jpg"
+            width={140}
+            height={140}
           />
           <div className="text-black absolute top-[9.69rem] left-[0.13rem] font-medium">
             <p className="m-0">Jennifer Connelly</p>
@@ -277,10 +285,12 @@ const MovieDetail = () => {
         </div>
         <div className="absolute top-[9.88rem] left-[25.38rem] w-[9.81rem] h-[14rem] text-center text-gainsboro-300">
           <div className="absolute top-[0rem] left-[0.5rem] rounded-[50%] bg-aliceblue w-[8.75rem] h-[8.75rem]" />
-          <img
+          <Image
             className="absolute top-[0rem] left-[0.5rem] rounded-[50%] w-[8.75rem] h-[8.75rem] object-cover"
             alt=""
             src="/Miles.jpg"
+            width={140}
+            height={140}
           />
           <div className="absolute top-[9.69rem] left-[0rem] font-medium">
             <p className="m-0 text-gainsboro-100">Miles Teller</p>
@@ -290,10 +300,12 @@ const MovieDetail = () => {
         </div>
         <div className="absolute top-[9.88rem] left-[38.38rem] w-[9.56rem] h-[14rem] text-center text-gainsboro-300">
           <div className="absolute top-[0rem] left-[0.44rem] rounded-[50%] bg-darkgray w-[8.75rem] h-[8.75rem]" />
-          <img
+          <Image
             className="absolute top-[0rem] left-[0.44rem] rounded-[50%] w-[8.75rem] h-[8.75rem] object-cover"
             alt="this in image"
             src="/Val.jpg"
+            width={140}
+            height={140}
           />
           <div className="absolute top-[9.69rem] left-[0rem] font-medium">
             <p className="m-0 text-gainsboro-100">Val Kilmer</p>
@@ -321,25 +333,34 @@ const MovieDetail = () => {
           <div className="absolute top-[0.13rem] left-[45.56rem] text-[0.94rem] font-semibold text-dimgray">
             See all
           </div>
-          <img
+          <Image
             className="absolute top-[4.06rem] left-[0rem] rounded-xl w-[10.75rem] h-[16.94rem] object-cover"
             alt=""
             src="/Poster1.png"
+            width={172}
+            height={272}
           />
-          <img
+          <Image
             className="absolute top-[4.06rem] left-[12.69rem] rounded-xl w-[10.69rem] h-[16.94rem] object-cover"
             alt=""
             src="/Poster2.png"
+            width={171}
+            height={272}
+
           />
-          <img
+          <Image
             className="absolute top-[4.06rem] left-[25.75rem] rounded-xl w-[10.81rem] h-[16.94rem] object-cover"
             alt=""
             src="/Poster3.png"
+            width={173}
+            height={272}
           />
-          <img
+          <Image
             className="absolute top-[4.06rem] left-[37.94rem] rounded-xl w-[10.75rem] h-[16.94rem] object-cover"
             alt=""
             src="/Poster4.png"
+            width={172}
+            height={272}
           />
           <div className="absolute top-[4.06rem] left-[7.13rem] w-[3.65rem] h-[1.51rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-tl-none rounded-tr-3xl rounded-br-none rounded-bl-3xl bg-gray-300 [backdrop-filter:blur(5px)] w-[3.65rem] h-[1.51rem]" />
@@ -357,10 +378,14 @@ const MovieDetail = () => {
           </div>
           <div className="absolute top-[4.06rem] left-[32.94rem] w-[3.65rem] h-[1.51rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-tl-none rounded-tr-3xl rounded-br-none rounded-bl-3xl bg-gray-400 [backdrop-filter:blur(5px)] w-[3.65rem] h-[1.51rem]" />
-            <img
+            
+            
+            <Image
               className="absolute top-[0.25rem] left-[0.63rem] w-[0.94rem] h-[0.94rem] object-cover"
               alt=""
-              src="/star3@2x.png"
+              src="/star.png"
+              width={15}
+              height={15}
             />
             <div className="absolute top-[0.19rem] left-[1.81rem] font-medium inline-block w-[1.24rem] h-[1.29rem]">
               8.3
@@ -377,20 +402,24 @@ const MovieDetail = () => {
         </div>
       </div>
       <div className="absolute top-[103.5rem] left-[67.56rem] w-[22.5rem] h-[14.31rem]">
-        <img
+        <Image
           className="absolute top-[0rem] left-[0rem] rounded-3xs w-[22.5rem] h-[14.31rem] object-cover"
           alt="THis is image"
           src="/RectangleSide.png"
+          width={360}
+          height={228}
         />
         <div className="absolute top-[11.69rem] left-[0rem] rounded-3xs bg-gray-500 [backdrop-filter:blur(4px)] w-[22.5rem] h-[2.63rem]" />
         <BsListUl className="absolute top-[12.38rem] left-[1rem] w-[1.44rem] h-[1.44rem] object-cover" />
         <div className="absolute top-[12.44rem] left-[3.19rem] font-medium [text-shadow:0px_1px_2px_rgba(0,_0,_0,_0.25)]">{`New & Upcoming Sequels, Prequels`}</div>
       </div>
       <div className=" text-black absolute top-[87.13rem] left-[67.56rem] w-[22.5rem] h-[14.31rem]">
-        <img
+        <Image
           className="absolute top-[0rem] left-[0rem] rounded-3xs w-[22.5rem] h-[14.31rem] object-cover"
           alt=""
           src="/RectangleSide.png"
+          width={360}
+          height={228}
         />
         <div className="absolute top-[11.69rem] left-[0rem] rounded-3xs bg-gray-500 [backdrop-filter:blur(4px)] w-[22.5rem] h-[2.63rem]" />
         <BsListUl className="absolute top-[12.38rem] left-[1rem] w-[1.44rem] h-[1.44rem] object-cover" />
@@ -404,10 +433,12 @@ const MovieDetail = () => {
           <p className="m-0">Upcoming Action and</p>
           <p className="m-0">Adventure Movies and TV</p>
         </div>
-        <img
+        <Image
           className="absolute top-[0.5rem] left-[17.19rem] rounded-3xs w-[4.63rem] h-[5.19rem] object-cover"
           alt=""
           src="/Poster1.png"
+          width={74}
+          height={83}
         />
         <div className="text-black absolute top-[4.44rem] left-[0.94rem] text-[0.75rem] text-gainsboro-600">
           updated 3 months ago • 26 images
@@ -416,10 +447,12 @@ const MovieDetail = () => {
       <div className="text-black absolute top-[119.88rem] left-[67.56rem] w-[22.5rem] h-[6.25rem]">
         <div className="absolute top-[0rem] left-[0rem] rounded-3xs shadow-[0px_2px_4px_rgba(0,_0,_0,_0.25)] box-border w-[22.5rem] h-[6.25rem] border-[1px] border-solid border-gainsboro-500" />
         <div className="absolute top-[0.88rem] left-[0.94rem]">Favourite</div>
-        <img
+        <Image
           className="absolute top-[0.5rem] left-[17.19rem] rounded-3xs w-[4.63rem] h-[5.19rem] object-cover"
           alt=""
           src="/Poster2.png"
+          width={74}
+          height={83}
         />
         <div className="absolute top-[4.44rem] left-[0.94rem] text-[0.75rem] text-gainsboro-600">
           created 2 months ago • 48 images
@@ -430,10 +463,12 @@ const MovieDetail = () => {
         <div className="absolute top-[0.88rem] left-[0.94rem]">
           2022 Summer Movie Guide
         </div>
-        <img
+        <Image
           className="absolute top-[0.5rem] left-[17.19rem] rounded-3xs w-[4.63rem] h-[5.19rem] object-cover"
           alt=""
           src="/Poster3.png"
+          width={74}
+          height={83}
         />
         <div className="absolute top-[4.44rem] left-[0.94rem] text-[0.75rem] text-gainsboro-600">
           updated 1 month ago • 52 images
@@ -445,20 +480,24 @@ const MovieDetail = () => {
           <p className="m-0">The Billion-Dollar Film Club: 50</p>
           <p className="m-0">Movies to Reach $1 Billion Worldwide</p>
         </div>
-        <img
+        <Image
           className="absolute top-[0.5rem] left-[17.19rem] rounded-3xs w-[4.63rem] h-[5.19rem] object-cover"
           alt=""
           src="/Poster4.png"
+          width={74}
+          height={83}
         />
         <div className="absolute top-[4.44rem] left-[0.94rem] text-[0.75rem] text-gainsboro-600">
           updated 1 week ago • 50 images
         </div>
       </div>
       <div className=" absolute top-[45.81rem] left-[67.56rem] w-[22.5rem] h-[14.31rem]">
-        <img
+        <Image
           className="absolute top-[0rem] left-[0rem] rounded-3xs w-[22.5rem] h-[14.31rem] object-cover"
           alt=""
           src="/RectangleSide.png"
+          width={360}
+          height={228}
         />
         <div className="absolute top-[11.69rem] left-[0rem] rounded-3xs bg-gray-500 [backdrop-filter:blur(4px)] w-[22.5rem] h-[2.63rem]" />
         <BsListUl className="absolute top-[12.31rem] left-[0.88rem] w-[1.69rem] h-[1.69rem] object-cover" />
@@ -474,10 +513,12 @@ const MovieDetail = () => {
           href="/"
           className="[text-decoration:none] absolute h-[5.09%] w-[82.3%] top-[5.3%] right-[8.85%] bottom-[89.61%] left-[8.85%] flex flex-row items-center justify-start gap-[1.5rem] text-[1.5rem] text-darkslategray-200 font-dm-sans"
         >
-          <img
+          <Image
             className="relative w-[3.13rem] h-[3.13rem] object-cover"
             alt="this is image"
             src="/tv.png"
+            width={50}
+            height={50}
           />
           <b className="relative leading-[1.5rem] text-black">MovieBox</b>
         </Link>

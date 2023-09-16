@@ -1,4 +1,4 @@
-import FilmCard from "./main/filmCard";
+
 import Navbar from "./main/navabr";
 import MovieList from "../components/MovieList";
 import SearchComponent from "@/components/SearchComponent";
