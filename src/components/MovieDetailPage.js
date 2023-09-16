@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import MovieDetailSidebar from "./MovieDetailSidebar";
 import FilmCard from "@/pages/main/filmCard";
-import { BsStar } from "react-icons/bs";
+import { BsStarHalf } from "react-icons/bs";
 import Image from "next/image";
 
 const MovieDetail = () => {
@@ -43,8 +43,7 @@ const MovieDetail = () => {
 
   // Define some styles for responsive layout
   const responsiveStyles = {
-
-    container: { maxWidth: "100%" }
+    container: { maxWidth: "100%" },
   };
 
   return (
@@ -52,21 +51,29 @@ const MovieDetail = () => {
       <div className="flex">
         <MovieDetailSidebar />
         <div className="p-4" style={responsiveStyles.container}>
-        
-
           <div className="flex items-center">
             <Image
               src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
               alt={movieDetails.title}
               className="w-full object-cover mb-4 h-[300px] sm:h-[400px]"
+              width={500}
+              height={500}
             />
           </div>
-          <div className="flex items-center mb-2">
+          <div className="flex items-center mb-2 justify-evenly">
             <h1 className="text-2xl font-bold mb-2">{movieDetails.title}</h1>
-            <BsStar className="text-yellow-500" size={25} />
+            &nbsp;&nbsp;
+            <BsStarHalf className="text-yellow-500" size={25} />
             <span className="text-sm md:text-base ml-1">
               {movieDetails.vote_average}
             </span>
+          <div className="flex items-center mb-2">
+            <span className="mr-2">&nbsp; Duration: {parseInt(movieDetails.runtime/60)}hours</span>
+            <span className="mr-2">Release Date: {movieDetails.release_date}</span>
+            <span className="text-sm md:text-base ml-1">
+              Vote: {movieDetails.vote_count}
+            </span>
+          </div>
           </div>
         </div>
       </div>
@@ -129,11 +136,10 @@ export default MovieDetail;
 
 // Define some styles for responsive layout
 const responsiveStyles = {
-  
-// Define your responsive styles here based on windowWidth
-// Example:
-// container: { maxWidth: "100%" },
-// ...
+  // Define your responsive styles here based on windowWidth
+  // Example:
+  // container: { maxWidth: "100%" },
+  // ...
 };
 //   const playIcon = <BsFillPlayFill />;
 //   return (

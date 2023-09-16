@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MovieCard from "./MovieCard"; // Import your MovieCard component
+import MovieCard from "./MovieCard";
 
 const TopRated = () => {
   const [movies, setMovies] = useState([]);
@@ -56,7 +56,6 @@ const TopRated = () => {
   return (
     <div className="px-2 py-10 md:px-24 bg-gray-100">
       {" "}
-      {/* Change the background color here */}
       <h1 className="mb-4 text-2xl font-bold">Top Rated</h1>
       <div className="relative">
         <Slider {...settings} ref={sliderRef}>

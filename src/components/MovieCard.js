@@ -44,6 +44,7 @@ const MovieCard = ({ movie }) => {
             <span>{movie.popularity}%</span>
           </div>
         </div>
+            <span className="ml-2">Release Date: {movie.release_date} </span>
       </div>
     </div>
   );
