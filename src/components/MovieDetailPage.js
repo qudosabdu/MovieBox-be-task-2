@@ -42,19 +42,18 @@ const MovieDetail = () => {
   }
 
   // Define some styles for responsive layout
-  // const responsiveStyles = {
-    // Define your responsive styles here based on windowWidth
-    // Example:
-    // container: { maxWidth: "100%" },
-    // ...
-  // };
+  const responsiveStyles = {
+
+    container: { maxWidth: "100%" }
+  };
 
   return (
     <>
       <div className="flex">
         <MovieDetailSidebar />
         <div className="p-4" style={responsiveStyles.container}>
-          {/* Add the rest of your content here */}
+        
+
           <div className="flex items-center">
             <Image
               src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
@@ -129,12 +128,13 @@ export default MovieDetail;
 //   }
 
 // Define some styles for responsive layout
-// const responsiveStyles = {
+const responsiveStyles = {
+  
 // Define your responsive styles here based on windowWidth
 // Example:
 // container: { maxWidth: "100%" },
 // ...
-// };
+};
 //   const playIcon = <BsFillPlayFill />;
 //   return (
 //     <div className="relative bg-white w-full h-[61.38rem] overflow-y-auto text-left text-[0.88rem] text-gainsboro-100 font-poppins">
