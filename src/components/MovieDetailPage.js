@@ -231,8 +231,7 @@ const MovieDetail = () => {
           </span>
         </div>
         <div className="absolute top-[8.63rem] left-[0.38rem] text-black">
-          <span>{`Stars
-  : `}</span>
+          {/* <span>{Stars}</span> */}
           <span className="text-crimson-100 text-black">
             Tom Cruise, Jennifer Connelly, Miles Teller
           </span>
