@@ -50,14 +50,11 @@ const MovieDetail = () => {
             {movieDetails.title}
           </h1>
           <BsStarHalf className="text-yellow-500" size={25} />
-          <span className="text-sm md:text-base ml-1">
+          {/* <span className="text-sm md:text-base ml-1">
             {(movieDetails.vote_average).toFixed(1)}
-          </span>
+          </span> */}
           <span className="text-sm md:text-base ml-1" data-testid="movie-release-date">
             Release: {movieDetails.release_date}
-          </span>
-          <span className="text-sm md:text-base ml-1">
-            votes:{movieDetails.vote_count}
           </span>
           <span className="text-sm md:text-base ml-1" data-testid="movie-runtime">
             Duration: {parseInt(movieDetails.runtime)} min
