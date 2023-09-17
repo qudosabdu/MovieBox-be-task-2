@@ -32,6 +32,16 @@ const MovieDetail = () => {
     return <div>Loading...</div>;
   }
 
+  const totalMinutes = movieDetails.runtime;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  const formattedTime = `${hours}h ${minutes}m`;
+
+  const dateString = movieDetails.release_date;
+  const year = new Date(dateString).getFullYear();
+
+  const rating = (movieDetails.vote_average).toFixed(1);
+
   return (
     <div className="flex">
       <MovieDetailSidebar />
@@ -49,28 +59,35 @@ const MovieDetail = () => {
           <h1 className="text-2xl font-bold mb-2" data-testid="movie-title">
             {movieDetails.title}
           </h1>
-          <BsStarHalf className="text-yellow-500" size={25} />
-          {/* <span className="text-sm md:text-base ml-1">
-            {(movieDetails.vote_average).toFixed(1)}
-          </span> */}
-          <span className="text-sm md:text-base ml-1" data-testid="movie-release-date">
-            Release: {movieDetails.release_date}
+          <span className="text-sm md:text-base ml-1">PG-13</span>
+          <span
+            className="text-sm md:text-base ml-1"
+            data-testid="movie-release-date"
+          >
+            {year}
           </span>
-          <span className="text-sm md:text-base ml-1" data-testid="movie-runtime">
-            Duration: {parseInt(movieDetails.runtime)} min
+          <span
+            className="text-sm md:text-base ml-1"
+            data-testid="movie-runtime"
+          >
+            {formattedTime}
           </span>
+          
+          <div className="flex items-center">
+            <BsStarHalf className="text-yellow-500" />
+            <span className="text-sm md:text-base ml-1" data-testid="movie-rating">
+              {rating}
+            </span>
+            </div>
         </div>
 
-        <div className="text-xl" >
-          {movieDetails.overview}
-        </div>
+        <div className="text-xl">{movieDetails.overview}</div>
       </div>
     </div>
   );
 };
 
 export default MovieDetail;
-
 
 // import Link from "next/link";
 // import { FaHome, FaStarAndCrescent } from "react-icons/fa";
