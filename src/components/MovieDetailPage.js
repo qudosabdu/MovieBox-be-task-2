@@ -37,8 +37,8 @@ const MovieDetail = () => {
   const minutes = totalMinutes % 60;
   const formattedTime = `${hours}h ${minutes}m`;
 
-  const dateString = movieDetails.release_date;
-  const year = new Date(dateString).getFullYear();
+
+  
 
   const rating = (movieDetails.vote_average).toFixed(1);
 
@@ -64,7 +64,7 @@ const MovieDetail = () => {
             className="text-sm md:text-base ml-1"
             data-testid="movie-release-date"
           >
-            {year}
+            {movieDetails.release_date}
           </span>
           {/* <span
             className="text-sm md:text-base ml-1"
