@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <TopRated />
+      {/* <TopRated /> */}
       <MovieList />
-      <SearchComponent />
+      {/* <SearchComponent /> */}
       <Footer />
     </div>
   );

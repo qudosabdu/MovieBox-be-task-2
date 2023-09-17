@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-import MovieCard from "./MovieCard"; // Assuming you have a MovieCard component for each movie
+import MovieCard from "./MovieCard";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -8,10 +7,11 @@ const MovieList = () => {
   const getMovies = async () => {
     try {
       const response = await fetch(
-        "https://api.themoviedb.org/3/discover/movie?api_key=da3e751cf5ad5c250a200c7ed8300d64"
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=da3e751cf5ad5c250a200c7ed8300d64"
       );
       const data = await response.json();
-      setMovies(data.results);
+      const topTenMovies = data.results.slice(0, 10);
+      setMovies(topTenMovies);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

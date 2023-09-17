@@ -10,7 +10,7 @@ import {
 
 const MovieDetailSidebar = () => {
   return (
-    <div className="bg-gray-300 p-10 flex flex-col h-screen rounded-r-[50px]">
+    <div className="bg-gray-300 p-10 flex flex-col h-screen rounded-r-[50px] md:w-44  w-[150px]">
       <div className="mb-6 mt-10">
         <Image
           src="/logo.png"
@@ -18,7 +18,6 @@ const MovieDetailSidebar = () => {
           height={150}
           alt="Logo"
           className="text-black "
-          
         />
 
         {/* Add your Logo component */}

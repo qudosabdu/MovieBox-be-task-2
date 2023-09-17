@@ -14,7 +14,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="relative overflow-hidden bg-white rounded-md shadow-md transition transform hover:shadow-xl ease-in duration-200 m-4"
-      
+      data-testid="movie-card"
     >
       <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -23,11 +23,14 @@ const MovieCard = ({ movie }) => {
         width={500}
         height={500}
         onClick={handleCardClick}
+        data-testid="movie-poster"
       />
       <LikeButton />
 
       <div className="p-2" onClick={handleCardClick}>
-        <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
+        <h2 className="text-xl font-bold mb-2" data-testid="movie-title">
+          {movie.title}
+        </h2>
         <div className="flex items-center mb-2 justify-between">
           <div className="flex items-center mb-2">
             <span className="mr-2">
@@ -45,7 +48,9 @@ const MovieCard = ({ movie }) => {
             <span>{movie.popularity}%</span>
           </div>
         </div>
-            <span className="ml-2">Release Date: {movie.release_date} </span>
+        <span className="ml-2" data-testid="movie-release-date">
+          Release Date: {movie.release_date}
+        </span>
       </div>
     </div>
   );
