@@ -59,7 +59,7 @@ const MovieDetail = () => {
           <h1 className="text-2xl font-bold mb-2" data-testid="movie-title">
             {movieDetails.title}
           </h1>
-          {/* <span className="text-sm md:text-base ml-1">PG-13</span> */}
+          <span className="text-sm md:text-base ml-1">PG-13</span>
           <span
             className="text-sm md:text-base ml-1"
             data-testid="movie-release-date"
@@ -71,14 +71,14 @@ const MovieDetail = () => {
             data-testid="movie-runtime"
           >
             {formattedTime}
-          </span>
-           */}
-          <div className="flex items-center">
+          </span> */}
+          
+          {/* <div className="flex items-center">
             <BsStarHalf className="text-yellow-500" />
             <span className="text-sm md:text-base ml-1" data-testid="movie-rating">
               {rating}
             </span>
-            </div>
+            </div> */}
         </div>
 
         <div className="text-xl">{movieDetails.overview}</div>
