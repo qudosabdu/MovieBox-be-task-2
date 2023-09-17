@@ -59,7 +59,7 @@ const MovieDetail = () => {
           <h1 className="text-2xl font-bold mb-2" data-testid="movie-title">
             {movieDetails.title}
           </h1>
-          <span className="text-sm md:text-base ml-1">PG-13</span>
+          {/* <span className="text-sm md:text-base ml-1">PG-13</span> */}
           {/* <span
             className="text-sm md:text-base ml-1"
             data-testid="movie-release-date"
