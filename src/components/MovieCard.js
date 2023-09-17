@@ -14,7 +14,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="relative overflow-hidden bg-white rounded-md shadow-md transition transform hover:shadow-xl ease-in duration-200 m-4"
-      onClick={handleCardClick}
+      
     >
       <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -22,10 +22,11 @@ const MovieCard = ({ movie }) => {
         className="w-full object-cover mb-4 h-[300px] sm:h-[400px]"
         width={500}
         height={500}
+        onClick={handleCardClick}
       />
       <LikeButton />
 
-      <div className="p-2">
+      <div className="p-2" onClick={handleCardClick}>
         <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
         <div className="flex items-center mb-2 justify-between">
           <div className="flex items-center mb-2">
