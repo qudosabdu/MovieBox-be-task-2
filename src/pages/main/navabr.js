@@ -19,7 +19,7 @@ const Navbar = () => {
 
         <Link href="/">
           <div className="absolute top-4 left-10 ">
-            <Image src="/logo.png" width={150} height={150}  alt="Logo" />
+            <Image src="/Logo.png" width={150} height={150}  alt="Logo" />
           </div>
         </Link>
 
