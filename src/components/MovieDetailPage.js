@@ -60,7 +60,7 @@ const MovieDetail = () => {
             {movieDetails.title}
           </h1>
           <span className="text-sm md:text-base ml-1">PG-13</span>
-          <span
+          {/* <span
             className="text-sm md:text-base ml-1"
             data-testid="movie-release-date"
           >
@@ -71,7 +71,7 @@ const MovieDetail = () => {
             data-testid="movie-runtime"
           >
             {formattedTime}
-          </span>
+          </span> */}
           
           <div className="flex items-center">
             <BsStarHalf className="text-yellow-500" />
