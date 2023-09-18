@@ -1,8 +1,25 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
+import { message } from "antd";
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleClick = () => {
+    if (liked) {
+      message.error("Removed from favorite list");
+    } else {
+      message.success("Added to favorite list");
+    }
+
+    setLiked(!liked);
+    setShowMessage(true);
+
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 500);
+  };
 
   return (
     <span className="absolute top-2 right-2 m-4">
@@ -22,7 +39,7 @@ const LikeButton = () => {
             color: liked ? "red" : "black",
             transition: "transform 0.3s",
           }}
-          onClick={() => setLiked(!liked)}
+          onClick={handleClick}
         />
       </div>
     </span>

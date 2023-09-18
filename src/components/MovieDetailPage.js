@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BsListUl } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Spin, Space } from "antd";
 
 const MovieDetailPage = () => {
   const router = useRouter();
@@ -30,7 +31,13 @@ const MovieDetailPage = () => {
   }, [movieId]);
 
   if (!movieDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Space size="large">
+          <Spin size="large" />
+        </Space>
+      </div>
+    );
   }
 
   const totalMinutes = movieDetails.runtime;
